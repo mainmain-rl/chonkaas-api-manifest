@@ -1,0 +1,56 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-chonkaas-api-py-http
+  namespace: chonkass
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: http
+spec:
+  rules:
+  - host: ""
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-chonkaas-api-py
+            port:
+              number: 5000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-chonkaas-api-py-https
+  namespace: chonkass
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: https
+spec:
+  rules:
+  - host: ""
+    http:
+      paths:
+      - path: /api/chonk
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-chonkaas-api-py
+            port:
+              number: 5000
+      - path: /api/viewer
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-chonkaas-api-py
+            port:
+              number: 5000
+      - path: /api/geoloc
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-chonkaas-api-py
+            port:
+              number: 5000
