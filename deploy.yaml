@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name:  chonkaas-api-py
-  namespace: chonkass
+  namespace: chonkass-api-py
   labels:
     app: chonkaas-api-py
     env: prod

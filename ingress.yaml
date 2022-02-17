@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ing-chonkaas-api-py-http
-  namespace: chonkass
+  namespace: chonkass-api-py
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: http
@@ -24,7 +24,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ing-chonkaas-api-py-https
-  namespace: chonkass
+  namespace: chonkass-api-py
   annotations:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: https

@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: chonkaas-api-py-http
-  namespace: chonkass
+  namespace: chonkass-api-py
 spec:
   entryPoints:
     - http
@@ -17,7 +17,7 @@ spec:
     services:
     - kind: Service
       name: svc-chonkaas-api-py
-      namespace: chonkass
+      namespace: chonkass-api-py
       port: 5000
       passHostHeader: true
 
@@ -26,7 +26,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: chonkaas-api-py-https
-  namespace: chonkass
+  namespace: chonkass-api-py
 spec:
   entryPoints:
     - https
@@ -41,7 +41,7 @@ spec:
     services:
         - kind: Service
           name: svc-chonkaas-api-py
-          namespace: chonkass
+          namespace: chonkass-api-py
           passHostHeader: true
           port: 5000
   tls:
