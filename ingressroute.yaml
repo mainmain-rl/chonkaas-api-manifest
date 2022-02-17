@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingr-http
+  namespace: test
+spec:
+  entryPoints:
+    - http
+  routes:
+    - match: Host(`chonk.traefik.me`) && 
+      kind: Rule
+      services:
+        - name: svc
+          namespace: chonkaas-api-py
+          kind: TraefikService
+          port: 5000
+          passHostHeader: true
