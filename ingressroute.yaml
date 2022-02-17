@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - http
   routes:
-    - match: Host(`chonk.traefik.me`)
+    - match: (Host(`chonk.traefik.me`) && Path(`/api/viewer`)) || (Host(`chonk.traefik.me`) && Path(`/api/chonk`))"
       kind: Rule
       services:
         - name: svc
